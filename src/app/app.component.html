@@ -6,3 +6,25 @@
     [yAxis]="true" [gradient]="true" (select)="onSelect($event)">
   </ngx-charts-bar-vertical>
 </div>
+
+<div class="container mt-5 d-block" *ngIf="showTable">
+  <h5>{{paisEscolhido?.name}}</h5>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Ouro</th>
+        <th scope="col">Prata</th>
+        <th scope="col">Bronze</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ paisEscolhido?.ouro }}</td>
+        <td>{{ paisEscolhido?.prata }}</td>
+        <td>{{ paisEscolhido?.bronze }}</td>
+        <td>{{ paisEscolhido?.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pais } from './Models/pais';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'OlympicsAnalytics';
 
-  paises = [
+  showTable: boolean = false;
+  paisEscolhido: Pais | undefined;
+
+  constructor() {
+    this.paisEscolhido = this.paises[0];
+  }
+
+  paises: Pais[] = [
     { name: "China", value: 70, ouro: 32, prata: 22, bronze: 16 },
     { name: "Estados Unidos", value: 79, ouro: 25, prata: 31, bronze: 23 },
     { name: "Japão", value: 40, ouro: 21, prata: 7, bronze: 12 },
@@ -21,7 +29,8 @@ export class AppComponent {
     { name: "Países Baixos", value: 23, ouro: 6, prata: 8, bronze: 9 },
   ];
 
-  onSelect(event: any) {
-    console.log(event);
+  onSelect(pais: Pais) {
+    this.showTable = true;
+    this.paisEscolhido = this.paises.find(p => p.name === pais.name);
   }
 }
