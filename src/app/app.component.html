@@ -1,1 +1,8 @@
 <app-top-bar></app-top-bar>
+
+<div class="container mt-5">
+  <ngx-charts-bar-vertical [view]="[1000,400]" [results]="paises" [xAxisLabel]="'Medalhas'" [legendTitle]="'Países'"
+    [yAxisLabel]="'Quantidade'" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true"
+    [yAxis]="true" [gradient]="true" (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
+</div>
